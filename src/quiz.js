@@ -30,8 +30,17 @@ class Quiz {
    
 }
        
+    checkAnswer (answer) {
+       this.correctAnswers++;
+    }
 
-    // 5. checkAnswer(answer)
-
-    // 6. hasEnded()
- }
+    hasEnded(){
+        if (this.currentQuestionIndex < this.questions.length) {
+            return false;
+        }
+        else{
+                return true;
+            }
+        } 
+    }
+ 

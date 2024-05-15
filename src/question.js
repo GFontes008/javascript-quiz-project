@@ -1,31 +1,23 @@
 class Question {
-    // YOUR CODE HERE:
-    //
-    // 1. constructor (text, choices, answer, difficulty)
-
-    constructor (text, choices, answer, difficulty) {
-        this.text = text;
-        this.choices = choices;
-        this.answer = answer;
-        this.difficulty = difficulty;
+  constructor(text, choices, answer, difficulty) {
+    this.text = text;
+    this.choices = choices;
+    this.answer = answer;
+    this.difficulty = difficulty;
+  }
+  shuffleChoices() {
+    // Our solution
+    const randomizedArr = [];
+    let counter = this.choices.length;
+    while (counter > 0) {
+      let shuffledChoice =
+        this.choices[Math.floor(Math.random() * this.choices.length)];
+      if (!randomizedArr.includes(shuffledChoice)) {
+        randomizedArr.push(shuffledChoice);
+        counter -= 1;
+      }
     }
-
-
-   
-// 2. shuffleChoices()
-
- shuffleChoices() { 
-    
-    for (let i = 0; i < this.choices.length; i++){ 
-        let randomIndex = Math.floor(Math.random() * this.choices.length);
-        let randomElement = this.choices[randomIndex];
-        this.choices.splice(randomIndex, 1);
-        this.choices.push(randomElement);
-    } 
+    this.choices = randomizedArr;
+    return this.choices;
+  }
 }
-}   
-
-
-    
-     
-   
